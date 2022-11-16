@@ -896,7 +896,7 @@ where
                 // Now that we know we'll be adding this to the
                 // context we can start buffering the request.
                 let data = body.data().await.unwrap().unwrap();
-                eprintln!(
+                trace!(
                     "Got a request for {} with pubkey={} and sig={}",
                     uri,
                     hex::encode(pk),
