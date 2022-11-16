@@ -13,9 +13,10 @@ impl HsmRequestContext {
         let dbid = BigEndian::read_u64(&msg.body[35..43]);
         let caps = BigEndian::read_u64(&msg.body[43..51]);
         Ok(HsmRequestContext {
+            dbid,
             node_id: node_id.to_vec(),
-            dbid: dbid,
             capabilities: caps,
+            requests: Vec::new(),
         })
     }
 }
