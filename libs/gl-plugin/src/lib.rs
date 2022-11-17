@@ -25,7 +25,7 @@ mod unix;
 #[derive(Clone)]
 pub struct GlPlugin {
     rpc: Arc<Mutex<LightningClient>>,
-    _stage: Arc<stager::Stage>,
+    stage: Arc<stager::Stage>,
     events: broadcast::Sender<Event>,
 }
 
@@ -37,7 +37,7 @@ pub struct GlPlugin {
 pub struct Builder {
     inner: cln_plugin::Builder<GlPlugin, tokio::io::Stdin, tokio::io::Stdout>,
     events: broadcast::Sender<Event>,
-    state: GlPlugin,
+    pub state: GlPlugin,
 }
 
 impl Builder {
@@ -76,7 +76,7 @@ pub type Plugin = cln_plugin::Plugin<GlPlugin>;
 
 impl GlPlugin {
     pub fn get_stage(&self) -> Arc<stager::Stage> {
-        self._stage.clone()
+        self.stage.clone()
     }
 }
 
@@ -114,7 +114,7 @@ pub async fn init(signer_state_store: Box<dyn crate::storage::StateStore>) -> Re
     let state = GlPlugin {
         events: events.clone(),
         rpc,
-        _stage: stage,
+        stage,
     };
 
     let inner = cln_plugin::Builder::new(tokio::io::stdin(), tokio::io::stdout())
