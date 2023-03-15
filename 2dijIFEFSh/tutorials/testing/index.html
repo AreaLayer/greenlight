@@ -22,10 +22,6 @@
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.08040f6c.min.css">
         
-          
-          
-          <meta name="theme-color" content="#546d78">
-        
       
       
 
@@ -53,17 +49,26 @@
   
     
     
+      
     
     
     
-    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="indigo">
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="">
   
     
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
+      
+        
+        <a href="#testing-with-gl-testing" class="md-skip">
+          Skip to content
+        </a>
       
     </div>
     <div data-md-component="announce">
@@ -73,7 +78,9 @@
     
       
 
-<header class="md-header" data-md-component="header">
+  
+
+<header class="md-header md-header--lifted" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="../.." title="Greenlight Documentation" class="md-header__button md-logo" aria-label="Greenlight Documentation" data-md-component="logo">
       
@@ -100,6 +107,30 @@
         </div>
       </div>
     </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3 3.19.09m3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95 2.06.05m-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31Z"/></svg>
+            </label>
+          
+        
+          
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5c-.84 0-1.65.15-2.39.42L12 2M3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29L3.34 7m.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14L3.36 17M20.65 7l-1.77 3.79a7.023 7.023 0 0 0-2.38-4.15l4.15.36m-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29L20.64 17M12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44L12 22Z"/></svg>
+            </label>
+          
+        
+      </form>
     
     
     
@@ -139,14 +170,8 @@
     
   </nav>
   
-</header>
     
-    <div class="md-container" data-md-component="container">
       
-      
-        
-          
-            
 <nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
   <div class="md-tabs__inner md-grid">
     <ul class="md-tabs__list">
@@ -232,7 +257,13 @@
     </ul>
   </div>
 </nav>
-          
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
         
       
       <main class="md-main" data-md-component="main">
@@ -276,11 +307,19 @@
       
       
       
+        
+          
+            
+          
+        
       
-        <label class="md-nav__link" for="__nav_1">
-          Home
-          <span class="md-nav__icon md-icon"></span>
-        </label>
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../..">Home</a>
+          
+        </div>
       
       <nav class="md-nav" aria-label="Home" data-md-level="1">
         <label class="md-nav__title" for="__nav_1">
@@ -289,18 +328,6 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
-        Introduction
-      </a>
-    </li>
-  
-
             
           
         </ul>
@@ -324,11 +351,31 @@
       
       
       
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
       
-        <label class="md-nav__link" for="__nav_2">
-          Getting Started
-          <span class="md-nav__icon md-icon"></span>
-        </label>
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../getting-started/">Getting Started</a>
+          
+            <label for="__nav_2">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
       
       <nav class="md-nav" aria-label="Getting Started" data-md-level="1">
         <label class="md-nav__title" for="__nav_2">
@@ -337,18 +384,6 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../getting-started/" class="md-nav__link">
-        Overview
-      </a>
-    </li>
-  
-
             
           
             
@@ -430,11 +465,29 @@
       
       
       
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
       
-        <label class="md-nav__link" for="__nav_3">
-          Tutorials
-          <span class="md-nav__icon md-icon"></span>
-        </label>
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../">Tutorials</a>
+          
+            <label for="__nav_3">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
       
       <nav class="md-nav" aria-label="Tutorials" data-md-level="1">
         <label class="md-nav__title" for="__nav_3">
@@ -443,18 +496,6 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../" class="md-nav__link">
-        Overview
-      </a>
-    </li>
-  
-
             
           
             
@@ -469,10 +510,71 @@
       <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
       
       
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Testing your app
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
         Testing your app
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#why-test-and-what-to-test" class="md-nav__link">
+    Why test and what to test?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#self-testing" class="md-nav__link">
+    Self-testing
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#writing-your-own-test" class="md-nav__link">
+    Writing your own test
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#manually-testing-against-a-mock-network" class="md-nav__link">
+    Manually testing against a mock Network
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fixtures" class="md-nav__link">
+    Fixtures
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -528,11 +630,29 @@
       
       
       
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
       
-        <label class="md-nav__link" for="__nav_4">
-          Reference
-          <span class="md-nav__icon md-icon"></span>
-        </label>
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../reference/">Reference</a>
+          
+            <label for="__nav_4">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
       
       <nav class="md-nav" aria-label="Reference" data-md-level="1">
         <label class="md-nav__title" for="__nav_4">
@@ -541,18 +661,6 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../reference/" class="md-nav__link">
-        Overview
-      </a>
-    </li>
-  
-
             
           
             
@@ -577,6 +685,20 @@
     <li class="md-nav__item">
       <a href="../../reference/node-rpc-proxy/" class="md-nav__link">
         Node RPC Proxy
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/partner-certs/" class="md-nav__link">
+        Partner Certificates
       </a>
     </li>
   
@@ -621,6 +743,51 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#why-test-and-what-to-test" class="md-nav__link">
+    Why test and what to test?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#self-testing" class="md-nav__link">
+    Self-testing
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#writing-your-own-test" class="md-nav__link">
+    Writing your own test
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#manually-testing-against-a-mock-network" class="md-nav__link">
+    Manually testing against a mock Network
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fixtures" class="md-nav__link">
+    Fixtures
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -635,9 +802,308 @@
                   
 
 
-  <h1>Testing your app</h1>
+<h1 id="testing-with-gl-testing">Testing with <code>gl-testing</code></h1>
+<p>The <a href="https://github.com/Blockstream/greenlight">repository</a> includes a testing framework that can be used
+to test your application locally. This framework is built on top of
+<a href="https://github.com/ElementsProject/lightning/tree/master/contrib/pyln-testing">pyln-testing</a> (also used to develop Core Lightning
+itself), allowing developers to describe arbitrarily complex network
+setups, alongside a mock Greenlight service, and test their
+functionality in a repeatable and reproducible way.</p>
+<p>If you are already familiar with <a href="https://docs.pytest.org/en/7.2.x/">pytest</a> you should feel
+right at home, if not, don't worry, we will walk through an example
+together here.</p>
+<h2 id="why-test-and-what-to-test">Why test and what to test?</h2>
+<p>You have just written the next viral app on top of Greenlight, how do
+you ensure it a) works now, and b) keeps on working going forward? You
+could manually test your application after each change against the
+Greenlight servers, or you might even automate some of these, but they
+still run against the production environment. On one hand this is
+likely not as fast as you're used to for local tests, and it actually
+allocates resources on the service that someone will have to pay for.</p>
+<p>Clearly it'd be better if we had a mock implementation of Greenluight
+that you can run locally, and that can be torn down in order to free
+the resources. This is pretty much what <code>gl-testing</code> is for. It
+consists of a mock python implementation of the <code>Scheduler</code>, on top of
+all the existing utilities from <code>pyln-testing</code>, and is bundled in a
+simple to use docker image. The docker image comes with all the
+dependencies installed, such as multiple CLN versions to test against,
+and is pre-configured to create an environment that is as close to the
+production setup as possible.</p>
+<div class="admonition example">
+<p class="admonition-title">Differences between <code>gl-testing</code> and the production environment</p>
+<p>We keep track of when behavior of <code>gl-testing</code> diverges substantially from the production behavior in the <a href="https://github.com/Blockstream/greenlight/tree/main/libs/gl-testing#differences-between-greenlight-and-gl-testing"><code>gl-testing</code> readme</a></p>
+</div>
+<p>Testing in the docker images is optional for Linux hosts, but strongly
+suggested due to the rather large number of dependencies. For Windows
+and MacOS we only support testing in the docker image, since the
+pre-compiled CLN versions are compiled for Linux on <code>x86_64</code> only for
+now.</p>
+<h2 id="self-testing">Self-testing</h2>
+<p>You will probably have expected this, but we also use <code>gl-testing</code> to
+test the bindings themselves. If you are working on a pull request for
+<code>gl-client</code> or one of the other components it is strongly suggested
+that you test your changes prior to submitting. To do so you can use a couple of <code>Makefile</code> targets:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Create the `gltesting` docker image</span>
+make docker-image
+
+<span class="c1"># Open an interactive shell in an instance of `gltesting`</span>
+make docker-shell
+</code></pre></div>
+<p>Then from inside the <code>docker-shell</code> you can invoke some more commands:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Build the `gl-client-py` bindings and install them in our python environment</span>
+make build-self
+
+<span class="c1"># Run the tests in `libs/gl-testing/tests` against the framework</span>
+make check-self
+</code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Depending on you system setup you may need to prefix these commands
+with <code>sudo</code> or become root first. This is because <code>docker</code>, which is
+used by those <code>Makefile</code> targets requires the user to either be in the
+<code>docker</code> group, or be <code>root</code>.</p>
+</div>
+<h2 id="writing-your-own-test">Writing your own test</h2>
+<p>Tests in <code>gl-testing</code> work best if you have a programmatic way of
+driving your client. This could either be your own testing framework,
+e.g., having a method to trigger a button press in your UI, or by
+exposing your own API. In this example we will walk through a simple test that</p>
+<ol>
+<li>Sets up a small test network</li>
+<li>Starts a Greenlight node</li>
+<li>Opens a channel from the network to the greenlight node</li>
+<li>Creates an invoice on the greenlight node</li>
+<li>Pays the invoice from a node in the network</li>
+</ol>
+<p>Here's the example code in its entirety and we will walk through the individual parts afterwards:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">test_node_network</span><span class="p">(</span><span class="n">node_factory</span><span class="p">,</span> <span class="n">clients</span><span class="p">,</span> <span class="n">bitcoind</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Setup a small network and check that we can send/receive payments.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">l1</span><span class="p">,</span> <span class="n">l2</span> <span class="o">=</span> <span class="n">node_factory</span><span class="o">.</span><span class="n">line_graph</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+
+    <span class="n">c</span> <span class="o">=</span> <span class="n">clients</span><span class="o">.</span><span class="n">new</span><span class="p">()</span>
+    <span class="n">c</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">configure</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">gl1</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="n">node</span><span class="p">()</span>
+
+    <span class="c1"># Handshake needs signer for ECDH of Noise_XK exchange</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="n">signer</span><span class="p">()</span><span class="o">.</span><span class="n">run_in_thread</span><span class="p">()</span>
+    <span class="n">gl1</span><span class="o">.</span><span class="n">connect_peer</span><span class="p">(</span><span class="n">l2</span><span class="o">.</span><span class="n">info</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">],</span> <span class="sa">f</span><span class="s1">&#39;127.0.0.1:</span><span class="si">{</span><span class="n">l2</span><span class="o">.</span><span class="n">daemon</span><span class="o">.</span><span class="n">port</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Now open a channel from l2 -&gt; gl1</span>
+    <span class="n">l2</span><span class="o">.</span><span class="n">fundwallet</span><span class="p">(</span><span class="n">sats</span><span class="o">=</span><span class="mi">2</span><span class="o">*</span><span class="mi">10</span><span class="o">**</span><span class="mi">6</span><span class="p">)</span>
+    <span class="n">l2</span><span class="o">.</span><span class="n">rpc</span><span class="o">.</span><span class="n">fundchannel</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">node_id</span><span class="o">.</span><span class="n">hex</span><span class="p">(),</span> <span class="s1">&#39;all&#39;</span><span class="p">)</span>
+    <span class="n">bitcoind</span><span class="o">.</span><span class="n">generate_block</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">wait_for_mempool</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="c1"># Now wait for the channel to confirm</span>
+    <span class="n">wait_for</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span> <span class="n">gl1</span><span class="o">.</span><span class="n">list_peers</span><span class="p">()</span><span class="o">.</span><span class="n">peers</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">channels</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">state</span> <span class="o">==</span> <span class="s1">&#39;CHANNELD_NORMAL&#39;</span><span class="p">)</span>
+
+    <span class="n">inv</span> <span class="o">=</span> <span class="n">gl1</span><span class="o">.</span><span class="n">create_invoice</span><span class="p">(</span>
+        <span class="s1">&#39;test&#39;</span><span class="p">,</span>
+        <span class="n">nodepb</span><span class="o">.</span><span class="n">Amount</span><span class="p">(</span><span class="n">millisatoshi</span><span class="o">=</span><span class="mi">10000</span><span class="p">)</span>
+    <span class="p">)</span><span class="o">.</span><span class="n">bolt11</span>
+
+    <span class="n">l1</span><span class="o">.</span><span class="n">rpc</span><span class="o">.</span><span class="n">pay</span><span class="p">(</span><span class="n">inv</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<p>Line 1: we define a new test:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">test_node_network</span><span class="p">(</span><span class="n">node_factory</span><span class="p">,</span> <span class="n">clients</span><span class="p">,</span> <span class="n">bitcoind</span><span class="p">):</span>
+</code></pre></div></td></tr></table></div>
+<p>Any function that starts with <code>test_</code> will be picked up by the test
+runner and executed. The arguments are fixtures that can be
+users. More on fixtures further down.</p>
+<p>Next we create a small network of two nodes, <code>l1</code> and <code>l2</code>, connected
+by a channel using the <code>node_factory</code> fixture. This fixture is used to
+start and control non-greenlight nodes.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code>    <span class="n">l1</span><span class="p">,</span> <span class="n">l2</span> <span class="o">=</span> <span class="n">node_factory</span><span class="o">.</span><span class="n">line_graph</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<p>Using the <code>clients</code> fixture we create a new client, along with its own
+directory, signer secret, and certificates. We then use
+<code>Client.register()</code> to register the node with Greenlight and then
+schedule it right away with the call to <code>Client.node()</code></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code>    <span class="n">c</span> <span class="o">=</span> <span class="n">clients</span><span class="o">.</span><span class="n">new</span><span class="p">()</span>
+    <span class="n">c</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">configure</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">gl1</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="n">node</span><span class="p">()</span>
+</code></pre></div></td></tr></table></div>
+<p>Lines 14-21: We start the signer (required to complete the handshake
+and any other signer request we will encounter), connect outwards from
+the GL node to <code>l2</code> representing the rest of the network, and then
+using <code>l2</code> to fund a channel over the connection we just opened.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span></pre></div></td><td class="code"><div><pre><span></span><code>    <span class="c1"># Handshake needs signer for ECDH of Noise_XK exchange</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="n">signer</span><span class="p">()</span><span class="o">.</span><span class="n">run_in_thread</span><span class="p">()</span>
+    <span class="n">gl1</span><span class="o">.</span><span class="n">connect_peer</span><span class="p">(</span><span class="n">l2</span><span class="o">.</span><span class="n">info</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">],</span> <span class="sa">f</span><span class="s1">&#39;127.0.0.1:</span><span class="si">{</span><span class="n">l2</span><span class="o">.</span><span class="n">daemon</span><span class="o">.</span><span class="n">port</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 
 
+    <span class="c1"># Now open a channel from l2 -&gt; gl1</span>
+    <span class="n">l2</span><span class="o">.</span><span class="n">fundwallet</span><span class="p">(</span><span class="n">sats</span><span class="o">=</span><span class="mi">2</span><span class="o">*</span><span class="mi">10</span><span class="o">**</span><span class="mi">6</span><span class="p">)</span>
+    <span class="n">l2</span><span class="o">.</span><span class="n">rpc</span><span class="o">.</span><span class="n">fundchannel</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">node_id</span><span class="o">.</span><span class="n">hex</span><span class="p">(),</span> <span class="s1">&#39;all&#39;</span><span class="p">)</span>
+    <span class="n">bitcoind</span><span class="o">.</span><span class="n">generate_block</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">wait_for_mempool</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<p>Notice that the last step waits for the funding transaction and
+confirms it. We then need to wait for the two nodes to notice that the funding transaction was confirmed before continuing:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">20</span>
+<span class="normal">21</span></pre></div></td><td class="code"><div><pre><span></span><code>    <span class="c1"># Now wait for the channel to confirm</span>
+    <span class="n">wait_for</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span> <span class="n">gl1</span><span class="o">.</span><span class="n">list_peers</span><span class="p">()</span><span class="o">.</span><span class="n">peers</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">channels</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">state</span> <span class="o">==</span> <span class="s1">&#39;CHANNELD_NORMAL&#39;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<p>This will poll <code>gl1</code> for its channel states and return as soon as the
+state indicates that the channel is confirmed and fully functional.</p>
+<p>Finally we can create an invoice from the Greenlight node <code>gl1</code> and
+pay it using <code>l1</code>, which should result in a path <code>l1 -&gt; l2 -&gt; gl1</code>
+being used, and the invoice will be paid after this:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span></pre></div></td><td class="code"><div><pre><span></span><code>    <span class="n">inv</span> <span class="o">=</span> <span class="n">gl1</span><span class="o">.</span><span class="n">create_invoice</span><span class="p">(</span>
+        <span class="s1">&#39;test&#39;</span><span class="p">,</span>
+        <span class="n">nodepb</span><span class="o">.</span><span class="n">Amount</span><span class="p">(</span><span class="n">millisatoshi</span><span class="o">=</span><span class="mi">10000</span><span class="p">)</span>
+    <span class="p">)</span><span class="o">.</span><span class="n">bolt11</span>
+
+    <span class="n">l1</span><span class="o">.</span><span class="n">rpc</span><span class="o">.</span><span class="n">pay</span><span class="p">(</span><span class="n">inv</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<p>To run this test you can use the above <code>Makefile</code> target:</p>
+<div class="highlight"><pre><span></span><code>$ sudo make docker-image docker-shell  <span class="c1"># (1)!</span>
+$ make build-self check-self  <span class="c1"># (2)!</span>
+</code></pre></div>
+<ol>
+<li>Enter the docker shell, building the image if it was not generated before.</li>
+<li>In the docker shell, build <code>gl-client</code> and bindings, then execute
+    the self-tests</li>
+</ol>
+<p>If you can drive your application from a python script through a UI
+testing framework or an API, you can just use the above test as a
+template and start writing your own tests.</p>
+<p>If you don't have a way to run your application through a scripted
+test you may want to start a network, and test against that
+manually. For an example of this see the next section.</p>
+<h2 id="manually-testing-against-a-mock-network">Manually testing against a mock Network</h2>
+<p>Every once in a while you'll want to either step through an existing
+test, or have a small test that just sets up a network topology, and
+then drops you in a shell that you can use to interact with the
+network. In both cases <code>breakpoint()</code> is your friend</p>
+<p>The following test will set up the small network above, and then drop
+you in a REPL that you can use to inspect the setup, and to drive
+changes such as paying an invoice or funding a channel:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">gltesting.fixtures</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span> <span class="nn">os</span>
+
+
+<span class="k">def</span> <span class="nf">test_my_network</span><span class="p">(</span><span class="n">clients</span><span class="p">,</span> <span class="n">node_factory</span><span class="p">,</span> <span class="n">scheduler</span><span class="p">,</span> <span class="n">directory</span><span class="p">,</span> <span class="n">bitcoind</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Start a small line_graph network to play with.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">l1</span><span class="p">,</span> <span class="n">l2</span><span class="p">,</span> <span class="n">l3</span> <span class="o">=</span> <span class="n">node_factory</span><span class="o">.</span><span class="n">line_graph</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>  <span class="c1"># (1)!</span>
+
+    <span class="c1"># Assuming we want interact with l3 we&#39;ll want to print</span>
+    <span class="c1"># its contact details:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;scheduler: https://localhost:</span><span class="si">{</span><span class="n">scheduler</span><span class="o">.</span><span class="n">grpc_port</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>  <span class="c1"># (3)!</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;l3 details: </span><span class="si">{</span><span class="n">l3</span><span class="o">.</span><span class="n">info</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> @ 127.0.0.1:</span><span class="si">{</span><span class="n">l3</span><span class="o">.</span><span class="n">daemon</span><span class="o">.</span><span class="n">port</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;CA Cert:     </span><span class="si">{</span><span class="n">directory</span><span class="si">}</span><span class="s2">/certs/ca.pem&quot;</span><span class="p">)</span>  <span class="c1"># (4)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Nobody Cert: </span><span class="si">{</span><span class="n">directory</span><span class="si">}</span><span class="s2">/certs/users/nobody.pem&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Nobody Key:  </span><span class="si">{</span><span class="n">directory</span><span class="si">}</span><span class="s2">/certs/users/nobody-key.pem&quot;</span><span class="p">)</span>
+
+    <span class="nb">breakpoint</span><span class="p">()</span>  <span class="c1"># (2)!</span>
+</code></pre></div>
+<ol>
+<li>At this point we have a network with 3 nodes in a line.</li>
+<li>Opens a REPL that accepts Python code.</li>
+<li>Tells us which port the mock scheduler is listening on</li>
+<li>Prints the location of the keypairs and certificates to use when
+    talking to the mock scheduler</li>
+</ol>
+<p>To start this test just run:</p>
+<div class="highlight"><pre><span></span><code>$ pytest testy.py -s
+<span class="o">==========</span> <span class="nb">test</span> session <span class="nv">starts</span> <span class="o">==========</span>
+platform linux -- Python <span class="m">3</span>.8.10, pytest-7.2.1, pluggy-1.0.0
+rootdir: /repo
+plugins: cov-3.0.0, xdist-2.5.0, forked-1.6.0, timeout-2.1.0
+collected <span class="m">1</span> item
+
+testy.py Running tests <span class="k">in</span> /tmp/ltests-syfsnw83
+<span class="o">[</span>... many more lines about the setup of the network ...<span class="o">]</span>
+
+scheduler: https://localhost:43841
+l3 details: 035d2b1192dfba134e10e540875d366ebc8bc353d5aa766b80c090b39c3a5d885d @ <span class="m">127</span>.0.0.1:34547
+CA Cert:     /tmp/gltesting/tmpfo6c2ye2/certs/ca.pem
+Nobody Cert: /tmp/gltesting/tmpfo6c2ye2/certs/users/nobody.pem
+Nobody Key:  /tmp/gltesting/tmpfo6c2ye2/certs/users/nobody-key.pem
+
+&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; PDB set_trace &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;
+--Return--
+&gt; /repo/testy.py<span class="o">(</span><span class="m">20</span><span class="o">)</span>test_my_network<span class="o">()</span>-&gt;None
+-&gt; breakpoint<span class="o">()</span>
+<span class="o">(</span>pdb<span class="o">)</span>
+</code></pre></div>
+<p>At this point you will have a REPL that you can use to drive changes,
+by writing python code, just like you'd do if you were writing the
+test in a file.</p>
+<p>In order to attach your client application to the mock scheduler we
+need to set a number of environment variables that <code>gl-client</code> will
+pick up and use:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">export</span> <span class="nv">GL_NOBODY_CERT</span><span class="o">=</span>/tmp/gltesting/tmpb7711nx5/certs/users/nobody.crt
+<span class="nb">export</span> <span class="nv">GL_NOBODY_KEY</span><span class="o">=</span>/tmp/gltesting/tmpb7711nx5/certs/users/nobody-key.pem
+<span class="nb">export</span> <span class="nv">GL_CA_CRT</span><span class="o">=</span>/tmp/gltesting/tmpb7711nx5/certs/ca.pem
+
+<span class="nb">export</span> <span class="nv">GL_SCHEDULER_GRPC_URI</span><span class="o">=</span>http://127.0.0.1:43841
+</code></pre></div>
+<p>The first three lines tell the client library which identity to load
+itself, and how to verify the identity of the scheduler when
+connecting. These must match the lines printed above. The last line
+tells the client to connect to our mock scheduler instead of the
+production scheduler, the port must match the one printed above.</p>
+<div class="admonition question">
+<p class="admonition-title">Why is this random?</p>
+<p>We usually run tests in parallel, which requires that we isolate
+the tests from each other. If we did not randomize the ports and
+directories, we could end up with tests that interfere with each
+other, making debugging much harder, and resulting in flaky tests.</p>
+</div>
+<p>All of this works thanks to us mounting the <code>/tmp/gltesting</code> directory
+from the host, allowing both docker container and host to exchange
+files, and <code>docker-shell</code> also reuses the host network, allowing
+clients running on the host to talk directly to the scheduler and
+nodes, without having to change the IP and setup port-forwarding.</p>
+<p>Once you are done testing, use <code>continue</code> or <code>Ctrl-D</code> in the REPL to
+trigger a shutdown.</p>
+<h2 id="fixtures">Fixtures</h2>
+<p>TODO</p>
 
 
 
@@ -648,6 +1114,8 @@
             </div>
           
           
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
         </div>
         
       </main>
@@ -711,7 +1179,7 @@
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs"], "search": "../../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "content.code.annotate", "navigation.instant", "navigation.tabs.sticky", "navigation.sections", "navigation.indexes", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.d6c3db9e.min.js"></script>
