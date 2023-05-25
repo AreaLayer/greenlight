@@ -707,7 +707,7 @@ the scheduler altogether.</p>
 will allow us to call methods on the service. We then schedule the
 node, which returns a stub representing the node running on the
 Greenlight infrastructure:</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Rust</label><label for="__tabbed_1_2">Python</label><label for="__tabbed_1_3">Javascript</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Rust</label><label for="__tabbed_1_2">Python</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="k">use</span><span class="w"> </span><span class="n">hex</span><span class="p">;</span>
@@ -715,7 +715,7 @@ Greenlight infrastructure:</p>
 <span class="kd">let</span><span class="w"> </span><span class="n">network</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;testnet&quot;</span><span class="p">;</span>
 
 <span class="kd">let</span><span class="w"> </span><span class="n">scheduler</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">gl_client</span>::<span class="n">scheduler</span>::<span class="n">Scheduler</span><span class="p">(</span><span class="n">node_id</span><span class="p">,</span><span class="w"> </span><span class="n">network</span><span class="p">)</span><span class="o">?</span><span class="p">;</span>
-<span class="kd">let</span><span class="w"> </span><span class="n">node</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">scheduler</span><span class="p">.</span><span class="n">schedule</span><span class="p">()</span><span class="o">?</span><span class="p">;</span>
+<span class="kd">let</span><span class="w"> </span><span class="n">node</span>: <span class="nc">gl_client</span>::<span class="n">node</span>::<span class="n">ClnClient</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">scheduler</span><span class="p">.</span><span class="n">schedule</span><span class="p">()</span><span class="o">?</span><span class="p">;</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
@@ -729,21 +729,95 @@ Greenlight infrastructure:</p>
 <span class="n">node</span> <span class="o">=</span> <span class="n">scheduler</span><span class="o">.</span><span class="n">node</span><span class="p">()</span>
 </code></pre></div>
 </div>
-<div class="tabbed-block">
-</div>
 </div>
 </div>
 <p>Once we have an instance of the <code>Node</code> we can start interacting with it via the GRPC interface:</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:3"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Rust</label><label for="__tabbed_2_2">Python</label><label for="__tabbed_2_3">Javascript</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Rust</label><label for="__tabbed_2_2">Python</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="k">use</span><span class="w"> </span><span class="n">gl_client</span>::<span class="n">pb</span>::<span class="n">cln</span><span class="p">;</span>
+<span class="kd">let</span><span class="w"> </span><span class="n">info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">node</span><span class="p">.</span><span class="n">get_info</span><span class="p">(</span><span class="n">cln</span>::<span class="n">GetinfoRequest</span>::<span class="n">default</span><span class="p">()).</span><span class="k">await</span><span class="o">?</span><span class="p">;</span>
+<span class="kd">let</span><span class="w"> </span><span class="n">peers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">node</span><span class="p">.</span><span class="n">list_peers</span><span class="p">(</span><span class="n">gl_client</span>::<span class="n">pb</span>::<span class="n">cln</span>::<span class="n">ListpeersRequest</span>::<span class="n">default</span><span class="p">()).</span><span class="k">await</span><span class="o">?</span><span class="p">;</span>
+</code></pre></div>
 </div>
 <div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="n">info</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="n">get_into</span><span class="p">()</span>
+<span class="n">peers</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="n">list_peers</span><span class="p">()</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>The above snippet will read the metadata and list the peers from the
+node. Both of these are read-only operations, that do not require a
+signer to sign off. What happens if we issue a command that requires a
+signer to sign off? Let's try to connect to create an
+invoice. Invoices are signed using the node key, and the signer is the
+only component with access to your key.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Rust</label><label for="__tabbed_3_2">Python</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="n">node</span><span class="p">.</span><span class="n">invoice</span><span class="p">(</span><span class="n">cln</span>::<span class="n">InvoiceRequest</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">label</span>: <span class="s">&quot;label&quot;</span><span class="p">.</span><span class="n">to_string</span><span class="p">(),</span>
+<span class="w">    </span><span class="n">description</span>: <span class="s">&quot;description&quot;</span><span class="p">.</span><span class="n">to_string</span><span class="p">(),</span>
+<span class="w">    </span><span class="o">..</span><span class="nb">Default</span>::<span class="n">default</span><span class="p">(),</span>
+<span class="p">}).</span><span class="k">await</span><span class="o">?</span><span class="p">;</span>
+</code></pre></div>
 </div>
 <div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">glclient</span> <span class="kn">import</span> <span class="n">clnpb</span>
+<span class="n">node</span><span class="o">.</span><span class="n">invoice</span><span class="p">(</span>
+    <span class="n">amount_msat</span><span class="o">=</span><span class="n">clnpb</span><span class="o">.</span><span class="n">AmountOrAny</span><span class="p">(</span><span class="nb">any</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
+    <span class="n">label</span><span class="o">=</span><span class="s2">&quot;label&quot;</span><span class="p">,</span>
+    <span class="n">description</span><span class="o">=</span><span class="s2">&quot;description&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+</code></pre></div>
 </div>
 </div>
 </div>
+<p>You'll notice that these calls hang indefinitely. This is because the
+signer is not running and not attached to the node, and without its
+signature we can't create the invoice. This isn't just the case for
+the <code>invoice</code> call either, all calls that somehow use the Node ID, or
+move funds, will require the signer's sign-off. You can think of a
+node without a signer being connected as a read-only node, and as soon
+as you attach the signer, the node becomes fully functional. So how do
+we attach the signer? Simple: load the secret from where you stored it
+in the last chapter, instantiate the signer with it and then start it.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">Rust</label><label for="__tabbed_4_2">Python</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="n">seed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">..</span><span class="p">.</span><span class="w"> </span><span class="c1">// Load from wherever you stored it</span>
+<span class="kd">let</span><span class="w"> </span><span class="p">(</span><span class="n">cert</span><span class="p">,</span><span class="w"> </span><span class="n">key</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">..</span><span class="p">.</span><span class="w"> </span><span class="c1">// Load the cert and key you got from the `register` call</span>
+
+<span class="c1">// The signer task will run until we send a shutdown signal on this channel</span>
+<span class="kd">let</span><span class="w"> </span><span class="p">(</span><span class="n">tx</span><span class="p">,</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">rx</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tokio</span>::<span class="n">mpsc</span>::<span class="n">channel</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+
+<span class="kd">let</span><span class="w"> </span><span class="n">tls</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">TlsConfig</span><span class="p">().</span><span class="n">identity</span><span class="p">(</span><span class="n">cert</span><span class="p">,</span><span class="w"> </span><span class="n">key</span><span class="p">);</span>
+<span class="n">signer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Signer</span><span class="p">(</span><span class="n">seed</span><span class="p">,</span><span class="w"> </span><span class="n">Network</span>::<span class="n">Bitcoin</span><span class="p">,</span><span class="w"> </span><span class="n">tls</span><span class="p">);</span>
+<span class="n">signer</span><span class="p">.</span><span class="n">run_forever</span><span class="p">(</span><span class="n">rx</span><span class="p">).</span><span class="k">await</span><span class="o">?</span><span class="p">;</span>
+</code></pre></div>
+<p>Notice that <code>signer.run_forever()</code> returns a <code>Future</code> which you can spawn a
+new task with. That is also the reason why a separate shutdown signal is
+provided.</p>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="n">seed</span> <span class="o">=</span> <span class="o">...</span> <span class="c1"># Load from wherever you stored it</span>
+<span class="n">cert</span><span class="p">,</span> <span class="n">key</span> <span class="o">=</span> <span class="o">...</span> <span class="o">//</span> <span class="n">Load</span> <span class="n">the</span> <span class="n">cert</span> <span class="ow">and</span> <span class="n">key</span> <span class="n">you</span> <span class="n">got</span> <span class="kn">from</span> <span class="nn">the</span> <span class="err">`</span><span class="n">register</span><span class="err">`</span> <span class="n">call</span>
+
+<span class="n">tls</span> <span class="o">=</span> <span class="n">TlsConfig</span><span class="p">()</span><span class="o">.</span><span class="n">with_identity</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">device_cert</span><span class="p">,</span> <span class="n">res</span><span class="o">.</span><span class="n">device_key</span><span class="p">)</span>
+<span class="n">signer</span> <span class="o">=</span> <span class="n">Signer</span><span class="p">::</span><span class="n">new</span><span class="p">(</span><span class="n">secret</span><span class="p">,</span> <span class="n">Network</span><span class="p">::</span><span class="n">Bitcoin</span><span class="p">,</span> <span class="n">tls</span><span class="p">)</span>
+<span class="n">signer</span><span class="o">.</span><span class="n">run_in_thread</span><span class="p">()</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>If you kept the stuck commands above running, you should notice that
+they now return a result. As mentioned before many RPC calls will need
+the signer to be attached to the node, so it's best to just start it
+early, and keep it running in the background whenever possible. The
+signer will not schedule the node by itself, instead waiting on the
+scheduler, so it doesn't consume much resources, but still be
+available when it is needed.</p>
 
 
 
