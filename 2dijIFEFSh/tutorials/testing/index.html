@@ -17,10 +17,10 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.472b142f.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.975780f9.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.08040f6c.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.2505c338.min.css">
         
       
       
@@ -641,6 +641,8 @@
         
           
         
+          
+        
       
       
         
@@ -699,6 +701,20 @@
     <li class="md-nav__item">
       <a href="../../reference/partner-certs/" class="md-nav__link">
         Partner Certificates
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/lsp/" class="md-nav__link">
+        LSP Integration
       </a>
     </li>
   
@@ -844,17 +860,17 @@ test the bindings themselves. If you are working on a pull request for
 <code>gl-client</code> or one of the other components it is strongly suggested
 that you test your changes prior to submitting. To do so you can use a couple of <code>Makefile</code> targets:</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Create the `gltesting` docker image</span>
-make docker-image
+make<span class="w"> </span>docker-image
 
 <span class="c1"># Open an interactive shell in an instance of `gltesting`</span>
-make docker-shell
+make<span class="w"> </span>docker-shell
 </code></pre></div>
 <p>Then from inside the <code>docker-shell</code> you can invoke some more commands:</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Build the `gl-client-py` bindings and install them in our python environment</span>
-make build-self
+make<span class="w"> </span>build-self
 
 <span class="c1"># Run the tests in `libs/gl-testing/tests` against the framework</span>
-make check-self
+make<span class="w"> </span>check-self
 </code></pre></div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
@@ -904,7 +920,7 @@ exposing your own API. In this example we will walk through a simple test that</
 <span class="normal">26</span>
 <span class="normal">27</span>
 <span class="normal">28</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">test_node_network</span><span class="p">(</span><span class="n">node_factory</span><span class="p">,</span> <span class="n">clients</span><span class="p">,</span> <span class="n">bitcoind</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Setup a small network and check that we can send/receive payments.</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Setup a small network and check that we can send/receive payments.</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">l1</span><span class="p">,</span> <span class="n">l2</span> <span class="o">=</span> <span class="n">node_factory</span><span class="o">.</span><span class="n">line_graph</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
@@ -999,8 +1015,8 @@ being used, and the invoice will be paid after this:</p>
     <span class="n">l1</span><span class="o">.</span><span class="n">rpc</span><span class="o">.</span><span class="n">pay</span><span class="p">(</span><span class="n">inv</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 <p>To run this test you can use the above <code>Makefile</code> target:</p>
-<div class="highlight"><pre><span></span><code>$ sudo make docker-image docker-shell  <span class="c1"># (1)!</span>
-$ make build-self check-self  <span class="c1"># (2)!</span>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>make<span class="w"> </span>docker-image<span class="w"> </span>docker-shell<span class="w">  </span><span class="c1"># (1)!</span>
+$<span class="w"> </span>make<span class="w"> </span>build-self<span class="w"> </span>check-self<span class="w">  </span><span class="c1"># (2)!</span>
 </code></pre></div>
 <ol>
 <li>Enter the docker shell, building the image if it was not generated before.</li>
@@ -1026,7 +1042,7 @@ changes such as paying an invoice or funding a channel:</p>
 
 
 <span class="k">def</span> <span class="nf">test_my_network</span><span class="p">(</span><span class="n">clients</span><span class="p">,</span> <span class="n">node_factory</span><span class="p">,</span> <span class="n">scheduler</span><span class="p">,</span> <span class="n">directory</span><span class="p">,</span> <span class="n">bitcoind</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Start a small line_graph network to play with.</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Start a small line_graph network to play with.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">l1</span><span class="p">,</span> <span class="n">l2</span><span class="p">,</span> <span class="n">l3</span> <span class="o">=</span> <span class="n">node_factory</span><span class="o">.</span><span class="n">line_graph</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>  <span class="c1"># (1)!</span>
 
@@ -1049,26 +1065,26 @@ changes such as paying an invoice or funding a channel:</p>
     talking to the mock scheduler</li>
 </ol>
 <p>To start this test just run:</p>
-<div class="highlight"><pre><span></span><code>$ pytest testy.py -s
-<span class="o">==========</span> <span class="nb">test</span> session <span class="nv">starts</span> <span class="o">==========</span>
-platform linux -- Python <span class="m">3</span>.8.10, pytest-7.2.1, pluggy-1.0.0
-rootdir: /repo
-plugins: cov-3.0.0, xdist-2.5.0, forked-1.6.0, timeout-2.1.0
-collected <span class="m">1</span> item
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>pytest<span class="w"> </span>testy.py<span class="w"> </span>-s
+<span class="o">==========</span><span class="w"> </span><span class="nb">test</span><span class="w"> </span>session<span class="w"> </span><span class="nv">starts</span><span class="w"> </span><span class="o">==========</span>
+platform<span class="w"> </span>linux<span class="w"> </span>--<span class="w"> </span>Python<span class="w"> </span><span class="m">3</span>.8.10,<span class="w"> </span>pytest-7.2.1,<span class="w"> </span>pluggy-1.0.0
+rootdir:<span class="w"> </span>/repo
+plugins:<span class="w"> </span>cov-3.0.0,<span class="w"> </span>xdist-2.5.0,<span class="w"> </span>forked-1.6.0,<span class="w"> </span>timeout-2.1.0
+collected<span class="w"> </span><span class="m">1</span><span class="w"> </span>item
 
-testy.py Running tests <span class="k">in</span> /tmp/ltests-syfsnw83
-<span class="o">[</span>... many more lines about the setup of the network ...<span class="o">]</span>
+testy.py<span class="w"> </span>Running<span class="w"> </span>tests<span class="w"> </span><span class="k">in</span><span class="w"> </span>/tmp/ltests-syfsnw83
+<span class="o">[</span>...<span class="w"> </span>many<span class="w"> </span>more<span class="w"> </span>lines<span class="w"> </span>about<span class="w"> </span>the<span class="w"> </span>setup<span class="w"> </span>of<span class="w"> </span>the<span class="w"> </span>network<span class="w"> </span>...<span class="o">]</span>
 
-scheduler: https://localhost:43841
-l3 details: 035d2b1192dfba134e10e540875d366ebc8bc353d5aa766b80c090b39c3a5d885d @ <span class="m">127</span>.0.0.1:34547
-CA Cert:     /tmp/gltesting/tmpfo6c2ye2/certs/ca.pem
-Nobody Cert: /tmp/gltesting/tmpfo6c2ye2/certs/users/nobody.pem
-Nobody Key:  /tmp/gltesting/tmpfo6c2ye2/certs/users/nobody-key.pem
+scheduler:<span class="w"> </span>https://localhost:43841
+l3<span class="w"> </span>details:<span class="w"> </span>035d2b1192dfba134e10e540875d366ebc8bc353d5aa766b80c090b39c3a5d885d<span class="w"> </span>@<span class="w"> </span><span class="m">127</span>.0.0.1:34547
+CA<span class="w"> </span>Cert:<span class="w">     </span>/tmp/gltesting/tmpfo6c2ye2/certs/ca.pem
+Nobody<span class="w"> </span>Cert:<span class="w"> </span>/tmp/gltesting/tmpfo6c2ye2/certs/users/nobody.pem
+Nobody<span class="w"> </span>Key:<span class="w">  </span>/tmp/gltesting/tmpfo6c2ye2/certs/users/nobody-key.pem
 
-&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; PDB set_trace &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;
+&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;<span class="w"> </span>PDB<span class="w"> </span>set_trace<span class="w"> </span>&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;
 --Return--
-&gt; /repo/testy.py<span class="o">(</span><span class="m">20</span><span class="o">)</span>test_my_network<span class="o">()</span>-&gt;None
--&gt; breakpoint<span class="o">()</span>
+&gt;<span class="w"> </span>/repo/testy.py<span class="o">(</span><span class="m">20</span><span class="o">)</span>test_my_network<span class="o">()</span>-&gt;None
+-&gt;<span class="w"> </span>breakpoint<span class="o">()</span>
 <span class="o">(</span>pdb<span class="o">)</span>
 </code></pre></div>
 <p>At this point you will have a REPL that you can use to drive changes,
@@ -1077,11 +1093,11 @@ test in a file.</p>
 <p>In order to attach your client application to the mock scheduler we
 need to set a number of environment variables that <code>gl-client</code> will
 pick up and use:</p>
-<div class="highlight"><pre><span></span><code><span class="nb">export</span> <span class="nv">GL_NOBODY_CERT</span><span class="o">=</span>/tmp/gltesting/tmpb7711nx5/certs/users/nobody.crt
-<span class="nb">export</span> <span class="nv">GL_NOBODY_KEY</span><span class="o">=</span>/tmp/gltesting/tmpb7711nx5/certs/users/nobody-key.pem
-<span class="nb">export</span> <span class="nv">GL_CA_CRT</span><span class="o">=</span>/tmp/gltesting/tmpb7711nx5/certs/ca.pem
+<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">GL_NOBODY_CERT</span><span class="o">=</span>/tmp/gltesting/tmpb7711nx5/certs/users/nobody.crt
+<span class="nb">export</span><span class="w"> </span><span class="nv">GL_NOBODY_KEY</span><span class="o">=</span>/tmp/gltesting/tmpb7711nx5/certs/users/nobody-key.pem
+<span class="nb">export</span><span class="w"> </span><span class="nv">GL_CA_CRT</span><span class="o">=</span>/tmp/gltesting/tmpb7711nx5/certs/ca.pem
 
-<span class="nb">export</span> <span class="nv">GL_SCHEDULER_GRPC_URI</span><span class="o">=</span>http://127.0.0.1:43841
+<span class="nb">export</span><span class="w"> </span><span class="nv">GL_SCHEDULER_GRPC_URI</span><span class="o">=</span>http://127.0.0.1:43841
 </code></pre></div>
 <p>The first three lines tell the client library which identity to load
 itself, and how to verify the identity of the scheduler when
@@ -1182,8 +1198,9 @@ trigger a shutdown.</p>
     <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "content.code.annotate", "navigation.instant", "navigation.tabs.sticky", "navigation.sections", "navigation.indexes", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.d6c3db9e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.5a2dcb6a.min.js"></script>
       
+    
     
   </body>
 </html>

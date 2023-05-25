@@ -17,10 +17,10 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.472b142f.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.975780f9.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.08040f6c.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.2505c338.min.css">
         
       
       
@@ -609,6 +609,8 @@
         
           
         
+          
+        
       
       
         
@@ -667,6 +669,20 @@
     <li class="md-nav__item">
       <a href="../../reference/partner-certs/" class="md-nav__link">
         Partner Certificates
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/lsp/" class="md-nav__link">
+        LSP Integration
       </a>
     </li>
   
@@ -756,23 +772,23 @@ common ones:</p>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>Add the <code>gl-client</code> crate as a dependency:</p>
-<div class="highlight"><pre><span></span><code><span class="k">[dependencies]</span><span class="w"></span>
-<span class="n">gl-client</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">git</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;ssh://git@github.com/Blockstream/greenlight&quot;</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="k">[dependencies]</span>
+<span class="n">gl-client</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">git</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;ssh://git@github.com/Blockstream/greenlight&quot;</span><span class="w"> </span><span class="p">}</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
 <p>The python library currently resides on a private repository which has to be specified during the installation:</p>
-<div class="highlight"><pre><span></span><code>pip install <span class="se">\</span>
-  --extra-index-url<span class="o">=</span>https://us-west2-python.pkg.dev/c-lightning/greenlight-pypi/simple/ <span class="se">\</span>
-  -U glcli
+<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--extra-index-url<span class="o">=</span>https://us-west2-python.pkg.dev/c-lightning/greenlight-pypi/simple/<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-U<span class="w"> </span>glcli
 </code></pre></div>
 </div>
 <div class="tabbed-block">
 <p>The javascript library currenctly resides on a private repository, which needs to be configured the first time you install it:
-<div class="highlight"><pre><span></span><code>npm config <span class="nb">set</span> @greenlight:registry<span class="o">=</span>https://us-west2-npm.pkg.dev/c-lightning/test-npm/
+<div class="highlight"><pre><span></span><code>npm<span class="w"> </span>config<span class="w"> </span><span class="nb">set</span><span class="w"> </span>@greenlight:registry<span class="o">=</span>https://us-west2-npm.pkg.dev/c-lightning/test-npm/
 </code></pre></div></p>
 <p>Afterwards specifying the namespace <code>@greenlight</code> is sufficient to install from the private repository.
-<div class="highlight"><pre><span></span><code>npm install @greenlight/gl-client-js
+<div class="highlight"><pre><span></span><code>npm<span class="w"> </span>install<span class="w"> </span>@greenlight/gl-client-js
 </code></pre></div></p>
 </div>
 </div>
@@ -855,8 +871,9 @@ common ones:</p>
     <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "content.code.annotate", "navigation.instant", "navigation.tabs.sticky", "navigation.sections", "navigation.indexes", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.d6c3db9e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.5a2dcb6a.min.js"></script>
       
+    
     
   </body>
 </html>

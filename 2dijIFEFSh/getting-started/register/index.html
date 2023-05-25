@@ -17,10 +17,10 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.472b142f.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.975780f9.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.08040f6c.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.2505c338.min.css">
         
       
       
@@ -620,6 +620,8 @@
         
           
         
+          
+        
       
       
         
@@ -678,6 +680,20 @@
     <li class="md-nav__item">
       <a href="../../reference/partner-certs/" class="md-nav__link">
         Partner Certificates
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/lsp/" class="md-nav__link">
+        LSP Integration
       </a>
     </li>
   
@@ -771,19 +787,24 @@ your device and is only handled by the <em>Signer</em>. It is suggested to
 derive the seed secret from a <a href="https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki">BIP 39</a> seed phrase, so the user
 can back it up on a physical piece of paper, steel plate, or whatever
 creative way of storing it they can think of.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The following code-snippets build on each other. By copying each snippet
+after the other you should get a working example.</p>
+</div>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Rust</label><label for="__tabbed_1_2">Python</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>Install the <code>bip39</code> and <code>rand</code> crates required for secure randomness and conversion of mnemonics. Add the following lines to your Cargo.toml</p>
-<div class="highlight"><pre><span></span><code><span class="k">[dependencies]</span><span class="w"></span>
-<span class="n">rand</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;*&quot;</span><span class="w"></span>
-<span class="n">bip39</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;*&quot;</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="k">[dependencies]</span>
+<span class="n">rand</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;*&quot;</span>
+<span class="n">bip39</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;*&quot;</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
 <p>Install the <code>bip39</code> package which we'll use to encode the
 seed secret as a seed phrase:</p>
-<div class="highlight"><pre><span></span><code>pip install bip39
+<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>bip39
 </code></pre></div>
 </div>
 </div>
@@ -793,17 +814,17 @@ phrase and then convert it into a seed secret we can use:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:3"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Rust</label><label for="__tabbed_2_2">Python</label><label for="__tabbed_2_3">Javascript</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="k">use</span><span class="w"> </span><span class="n">bip39</span>::<span class="p">{</span><span class="n">Mnemonic</span><span class="p">,</span><span class="w"> </span><span class="n">Language</span><span class="p">};</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="k">use</span><span class="w"> </span><span class="n">bip39</span>::<span class="p">{</span><span class="n">Mnemonic</span><span class="p">,</span><span class="w"> </span><span class="n">Language</span><span class="p">};</span>
 
-<span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">rng</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rand</span>::<span class="n">thread_rng</span><span class="p">();</span><span class="w"></span>
-<span class="kd">let</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Mnemonic</span>::<span class="n">generate_in_with</span><span class="p">(</span><span class="o">&amp;</span><span class="k">mut</span><span class="w"> </span><span class="n">rng</span><span class="p">,</span><span class="w"> </span><span class="n">Language</span>::<span class="n">English</span><span class="p">,</span><span class="w"> </span><span class="mi">24</span><span class="p">).</span><span class="n">unwrap</span><span class="p">();</span><span class="w"></span>
-<span class="kd">let</span><span class="w"> </span><span class="n">phrase</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">m</span><span class="p">.</span><span class="n">word_iter</span><span class="p">().</span><span class="n">fold</span><span class="p">(</span><span class="s">&quot;&quot;</span><span class="p">.</span><span class="n">to_string</span><span class="p">(),</span><span class="w"> </span><span class="o">|</span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="o">|</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">n</span><span class="p">);</span><span class="w"></span>
+<span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">rng</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rand</span>::<span class="n">thread_rng</span><span class="p">();</span>
+<span class="kd">let</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Mnemonic</span>::<span class="n">generate_in_with</span><span class="p">(</span><span class="o">&amp;</span><span class="k">mut</span><span class="w"> </span><span class="n">rng</span><span class="p">,</span><span class="w"> </span><span class="n">Language</span>::<span class="n">English</span><span class="p">,</span><span class="w"> </span><span class="mi">24</span><span class="p">).</span><span class="n">unwrap</span><span class="p">();</span>
+<span class="kd">let</span><span class="w"> </span><span class="n">phrase</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">m</span><span class="p">.</span><span class="n">word_iter</span><span class="p">().</span><span class="n">fold</span><span class="p">(</span><span class="s">&quot;&quot;</span><span class="p">.</span><span class="n">to_string</span><span class="p">(),</span><span class="w"> </span><span class="o">|</span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="o">|</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">n</span><span class="p">);</span>
 
-#<span class="w"> </span><span class="n">Prompt</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">safely</span><span class="w"> </span><span class="n">store</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">phrase</span><span class="w"></span>
+#<span class="w"> </span><span class="n">Prompt</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">safely</span><span class="w"> </span><span class="n">store</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">phrase</span>
 
-<span class="n">seed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">m</span><span class="p">.</span><span class="n">to_seed</span><span class="p">(</span><span class="s">&quot;&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="o">..</span><span class="mi">32</span><span class="p">]</span><span class="w">  </span>#<span class="w"> </span><span class="n">Only</span><span class="w"> </span><span class="n">need</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">first</span><span class="w"> </span><span class="mi">32</span><span class="w"> </span><span class="n">bytes</span><span class="w"></span>
+<span class="n">seed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">m</span><span class="p">.</span><span class="n">to_seed</span><span class="p">(</span><span class="s">&quot;&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="o">..</span><span class="mi">32</span><span class="p">]</span><span class="w">  </span>#<span class="w"> </span><span class="n">Only</span><span class="w"> </span><span class="n">need</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">first</span><span class="w"> </span><span class="mi">32</span><span class="w"> </span><span class="n">bytes</span>
 
-#<span class="w"> </span><span class="n">Store</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">seed</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">filesystem</span><span class="p">,</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">secure</span><span class="w"> </span><span class="n">configuration</span><span class="w"> </span><span class="n">system</span><span class="w"></span>
+#<span class="w"> </span><span class="n">Store</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">seed</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">filesystem</span><span class="p">,</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">secure</span><span class="w"> </span><span class="n">configuration</span><span class="w"> </span><span class="n">system</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
@@ -824,6 +845,10 @@ phrase and then convert it into a seed secret we can use:</p>
 </div>
 </div>
 </div>
+<p>Remember to store the seed somewhere (file on disk, registry, etc)
+because without it, you will not have access to the node, and any
+funds on the node will be lost forever! We mean it when we say <em>you're
+the only one with access to the seed</em>!</p>
 <p>Next we instantiate an mTLS identity we will use to authenticate with
 Greenlight. Since we haven't registered our node with the service yet,
 we will use a dummy key, that allows us to talk to the <em>Scheduler</em> but
@@ -832,9 +857,9 @@ register the node we will get a valid certificate to authenticate.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="3:3"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Rust</label><label for="__tabbed_3_2">Python</label><label for="__tabbed_3_3">Javascript</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="k">use</span><span class="w"> </span><span class="n">gl_client</span>::<span class="n">tls</span>::<span class="n">TlsConfig</span><span class="p">;</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="k">use</span><span class="w"> </span><span class="n">gl_client</span>::<span class="n">tls</span>::<span class="n">TlsConfig</span><span class="p">;</span>
 
-<span class="kd">let</span><span class="w"> </span><span class="n">tls</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">TlsConfig</span>::<span class="n">new</span><span class="p">();</span><span class="w"></span>
+<span class="kd">let</span><span class="w"> </span><span class="n">tls</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">TlsConfig</span>::<span class="n">new</span><span class="p">();</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
@@ -845,17 +870,18 @@ register the node we will get a valid certificate to authenticate.</p>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">glclient</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;glclient&#39;</span><span class="p">);</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">glclient</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;glclient&#39;</span><span class="p">);</span>
 
-<span class="err">#</span><span class="w"> </span><span class="nx">Creating</span><span class="w"> </span><span class="nx">a</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="sb">`TlsConfig`</span><span class="w"> </span><span class="nx">object</span><span class="w"> </span><span class="nx">will</span><span class="w"> </span><span class="nx">automatically</span><span class="w"> </span><span class="nx">load</span><span class="w"> </span><span class="nx">the</span><span class="w"> </span><span class="nx">dummy</span><span class="w"> </span><span class="nx">identity</span><span class="w"></span>
-<span class="kd">var</span><span class="w"> </span><span class="nx">tls</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">glclient</span><span class="p">.</span><span class="nx">TlsConfig</span><span class="p">();</span><span class="w"></span>
+<span class="err">#</span><span class="w"> </span><span class="nx">Creating</span><span class="w"> </span><span class="nx">a</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="sb">`TlsConfig`</span><span class="w"> </span><span class="nx">object</span><span class="w"> </span><span class="nx">will</span><span class="w"> </span><span class="nx">automatically</span><span class="w"> </span><span class="nx">load</span><span class="w"> </span><span class="nx">the</span><span class="w"> </span><span class="nx">dummy</span><span class="w"> </span><span class="nx">identity</span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">tls</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">glclient</span><span class="p">.</span><span class="nx">TlsConfig</span><span class="p">();</span>
 </code></pre></div>
 </div>
 </div>
 </div>
 <p>Finally, we can create the <code>Signer</code> which processes incoming signature
 requests, and is used when registering a node to prove ownership of
-the private key. The last thing to decide is which network we want the node to run on. You can chose between the following networks:</p>
+the private key. The last thing to decide is which network we want the
+node to run on. You can chose between the following networks:</p>
 <ul>
 <li><code>testnet</code></li>
 <li><code>bitcoin</code></li>
@@ -864,13 +890,17 @@ the private key. The last thing to decide is which network we want the node to r
 <div class="tabbed-set tabbed-alternate" data-tabs="4:3"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><input id="__tabbed_4_3" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">Rust</label><label for="__tabbed_4_2">Python</label><label for="__tabbed_4_3">Javascript</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="k">use</span><span class="w"> </span><span class="n">gl_client</span>::<span class="n">signer</span>::<span class="n">Signer</span><span class="p">;</span><span class="w"></span>
-<span class="k">use</span><span class="w"> </span><span class="n">bitcoin</span>::<span class="n">Network</span><span class="p">;</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="k">use</span><span class="w"> </span><span class="n">gl_client</span>::<span class="n">signer</span>::<span class="n">Signer</span><span class="p">;</span>
+<span class="k">use</span><span class="w"> </span><span class="n">bitcoin</span>::<span class="n">Network</span><span class="p">;</span>
 
-<span class="n">signer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Signer</span>::<span class="n">new</span><span class="p">(</span><span class="n">secret</span><span class="p">,</span><span class="w"> </span><span class="n">Network</span>::<span class="n">Bitcoin</span><span class="p">,</span><span class="w"> </span><span class="n">tls</span><span class="p">)</span><span class="w"></span>
+<span class="n">signer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Signer</span>::<span class="n">new</span><span class="p">(</span><span class="n">secret</span><span class="p">,</span><span class="w"> </span><span class="n">Network</span>::<span class="n">Bitcoin</span><span class="p">,</span><span class="w"> </span><span class="n">tls</span><span class="p">)</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">glclient</span> <span class="kn">import</span> <span class="n">Signer</span>
+
+<span class="n">signer</span> <span class="o">=</span> <span class="n">Signer</span><span class="p">(</span><span class="n">seed</span><span class="p">,</span> <span class="n">network</span><span class="o">=</span><span class="s2">&quot;bitcoin&quot;</span><span class="p">,</span> <span class="n">tls</span><span class="o">=</span><span class="n">tls</span><span class="p">)</span>
+</code></pre></div>
 </div>
 <div class="tabbed-block">
 </div>
@@ -886,23 +916,43 @@ exclusively by the <em>Signer</em> we need to first instantiate that:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="5:1"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">Python</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">glclient</span> <span class="kn">import</span> <span class="n">TlsConfig</span><span class="p">,</span> <span class="n">Signer</span><span class="p">,</span> <span class="n">Scheduler</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">glclient</span> <span class="kn">import</span> <span class="n">Scheduler</span>
 
-<span class="c1"># Create an mTLS identity using the default `nobody` identity, allowing us</span>
-<span class="c1"># to talk to the Scheduler</span>
-<span class="n">tls</span> <span class="o">=</span> <span class="n">TlsConfig</span><span class="p">()</span>
+<span class="n">scheduler</span> <span class="o">=</span> <span class="n">Scheduler</span><span class="p">(</span>
+    <span class="n">node_id</span><span class="o">=</span><span class="n">signer</span><span class="o">.</span><span class="n">node_id</span><span class="p">(),</span>
+    <span class="n">network</span><span class="o">=</span><span class="s2">&quot;bitcoin&quot;</span><span class="p">,</span>
+    <span class="n">tls</span><span class="o">=</span><span class="n">tls</span><span class="p">,</span>
+<span class="p">)</span>
 
-<span class="c1"># The seed secret used for the identity. You most likely want </span>
-<span class="n">secret</span> <span class="o">=</span> <span class="sa">b</span><span class="s1">&#39;</span><span class="se">\x00</span><span class="s1">&#39;</span><span class="o">*</span><span class="mi">32</span>
+<span class="c1"># Passing in the signer is required because the client needs to prove</span>
+<span class="c1"># ownership of the `node_id`</span>
+<span class="n">res</span> <span class="o">=</span> <span class="n">scheduler</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">signer</span><span class="p">,</span> <span class="n">invite_code</span><span class="o">=</span><span class="n">invite_code</span><span class="p">)</span>
 </code></pre></div>
 </div>
 </div>
 </div>
-<p>TODO:
- - Store secret on fs
- - Add code to load from fs
- - what to do with the result
-   - Store cert and key on disk</p>
+<p>The result of <code>register</code> contains the credentials that can be used
+going forward to talk to the scheduler and the node itself. Please
+make sure to store them somewhere safe, since anyone with these
+credentials can access your node.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="6:1"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><div class="tabbed-labels"><label for="__tabbed_6_1">Python</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="n">tls</span> <span class="o">=</span> <span class="n">TlsConfig</span><span class="p">()</span><span class="o">.</span><span class="n">with_identity</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">device_cert</span><span class="p">,</span> <span class="n">res</span><span class="o">.</span><span class="n">device_key</span><span class="p">)</span>
+
+<span class="c1"># Use the configured `tls` instance when creating `Scheduler` and `Signer`</span>
+<span class="c1"># instance going forward</span>
+<span class="n">signer</span> <span class="o">=</span> <span class="n">Signer</span><span class="p">(</span><span class="n">seed</span><span class="p">,</span> <span class="n">network</span><span class="o">=</span><span class="s2">&quot;bitcoin&quot;</span><span class="p">,</span> <span class="n">tls</span><span class="o">=</span><span class="n">tls</span><span class="p">)</span>
+<span class="n">node</span> <span class="o">=</span> <span class="n">Scheduler</span><span class="p">(</span><span class="n">node_id</span><span class="o">=</span><span class="n">signer</span><span class="o">.</span><span class="n">node_id</span><span class="p">(),</span> <span class="n">network</span><span class="o">=</span><span class="s2">&quot;bitcoin&quot;</span><span class="p">,</span> <span class="n">tls</span><span class="o">=</span><span class="n">tls</span><span class="p">)</span><span class="o">.</span><span class="n">node</span><span class="p">()</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>If you get an error about a certificate verification failure when
+talking to the node, you most likely are using an unconfigured
+<code>TlsConfig</code> that doesn't have access to the node. See
+<a href="../../reference/security/">Security</a> for details on how authentication and
+authorization work under the hood.</p>
 
 
 
@@ -981,8 +1031,9 @@ exclusively by the <em>Signer</em> we need to first instantiate that:</p>
     <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "content.code.annotate", "navigation.instant", "navigation.tabs.sticky", "navigation.sections", "navigation.indexes", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.d6c3db9e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.5a2dcb6a.min.js"></script>
       
+    
     
   </body>
 </html>
