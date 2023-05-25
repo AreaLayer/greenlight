@@ -247,11 +247,15 @@
   
 
 
-  <li class="md-tabs__item">
-    <a href="../../about/" class="md-tabs__link">
-      About
-    </a>
-  </li>
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../about/" class="md-tabs__link">
+        About
+      </a>
+    </li>
+  
 
       
     </ul>
@@ -643,10 +647,59 @@
   
   
   
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../about/">About</a>
+          
+            <label for="__nav_5">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="About" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          About
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
     <li class="md-nav__item">
-      <a href="../../about/" class="md-nav__link">
-        About
+      <a href="../../about/changelog/" class="md-nav__link">
+        Changelog
       </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -708,6 +761,11 @@ corresponds to that node.</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">glclient</span> <span class="kn">import</span> <span class="n">Scheduler</span><span class="p">,</span> <span class="n">Signer</span><span class="p">,</span> <span class="n">TlsConfig</span>
 
 <span class="n">tls</span> <span class="o">=</span> <span class="n">TlsConfig</span><span class="p">()</span>
+<span class="n">scheduler</span> <span class="o">=</span> <span class="n">Scheduler</span><span class="p">(</span>
+    <span class="n">node_id</span><span class="o">=</span><span class="n">signer</span><span class="o">.</span><span class="n">node_id</span><span class="p">(),</span>
+    <span class="n">network</span><span class="o">=</span><span class="s2">&quot;bitcoin&quot;</span><span class="p">,</span>
+    <span class="n">tls</span><span class="o">=</span><span class="n">tls</span><span class="p">,</span>
+<span class="p">)</span>
 <span class="n">signer</span> <span class="o">=</span> <span class="n">Signer</span><span class="p">(</span><span class="n">seed</span><span class="p">,</span> <span class="n">network</span><span class="o">=</span><span class="s2">&quot;bitcoin&quot;</span><span class="p">,</span> <span class="n">tls</span><span class="o">=</span><span class="n">tls</span><span class="p">)</span>
 <span class="n">res</span> <span class="o">=</span> <span class="n">scheduler</span><span class="o">.</span><span class="n">recover</span><span class="p">(</span><span class="n">signer</span><span class="p">)</span>
 </code></pre></div>
