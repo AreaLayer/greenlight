@@ -474,8 +474,6 @@
         
           
         
-          
-        
       
       
         
@@ -608,20 +606,6 @@
 
             
           
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../standalone-signer/" class="md-nav__link">
-        Standalone signer
-      </a>
-    </li>
-  
-
-            
-          
         </ul>
       </nav>
     </li>
@@ -646,8 +630,6 @@
         
           
             
-          
-        
           
         
           
@@ -686,20 +668,6 @@
     <li class="md-nav__item">
       <a href="../../reference/security/" class="md-nav__link">
         Security
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../reference/node-rpc-proxy/" class="md-nav__link">
-        Node RPC Proxy
       </a>
     </li>
   
@@ -889,14 +857,28 @@ local-only signer.</p>
 <p>If you have any clients configured you'll likely want to run the
 <code>gl-plugin</code> rather than the stock <code>grpc-plugin</code>, as the former
 implements a superset of the latter. In addition clients will still be
-able to reach the node through the node URL through the <a href="../../reference/node-rpc-proxy/">GL reverse
-proxy</a>. In the next sections we provide step-by-step
+able to reach the node through the node URL through the GL reverse
+proxy. In the next sections we provide step-by-step
 instructions to restore the node's database, and then setup the
 different variants. You will have to decide which one best suites your
 needs :wink:</p>
 <h3 id="restoring-the-database">Restoring the database</h3>
+<details class="todo">
+<summary>Todo</summary>
+<p>Describe how to decrypt the backup and restore it into a new
+postgres database</p>
+</details>
 <h3 id="remote-signer-setup">Remote Signer Setup</h3>
+<details class="todo">
+<summary>Todo</summary>
+<p>Describe how to adjust the <code>lightningd</code> service to use the 
+<code>signerproxy</code> instead of the built-in <code>hsmd</code> subdaemon.</p>
+</details>
 <h3 id="local-signer-setups">Local Signer Setups</h3>
+<details class="todo">
+<summary>Todo</summary>
+<p>Should just work out of the box.</p>
+</details>
 <h3 id="minimal-setup">Minimal Setup</h3>
 <p>The minimal setup to host an exported node consists of a
 <a href="https://www.postgresql.org/">PostgreSQL</a> database, and a CLN installation matching or
@@ -961,13 +943,13 @@ the same encrypted backup URL</p>
       
       
         
-        <a href="../standalone-signer/" class="md-footer__link md-footer__link--next" aria-label="Next: Standalone signer" rel="next">
+        <a href="../../reference/" class="md-footer__link md-footer__link--next" aria-label="Next: Overview" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Standalone signer
+              Overview
             </div>
           </div>
           <div class="md-footer__button md-icon">
