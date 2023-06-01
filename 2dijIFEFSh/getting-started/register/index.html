@@ -54,7 +54,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="">
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="amber" data-md-color-accent="amber">
   
     
     
@@ -113,7 +113,7 @@
           
           
           
-          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="amber" data-md-color-accent="amber"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
           
             <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3 3.19.09m3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95 2.06.05m-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31Z"/></svg>
@@ -123,7 +123,7 @@
           
           
           
-          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="amber" data-md-color-accent="amber"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
           
             <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5c-.84 0-1.65.15-2.39.42L12 2M3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29L3.34 7m.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14L3.36 17M20.65 7l-1.77 3.79a7.023 7.023 0 0 0-2.38-4.15l4.15.36m-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29L20.64 17M12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44L12 22Z"/></svg>
@@ -866,15 +866,19 @@ phrase and then convert it into a seed secret we can use:</p>
 </div>
 </div>
 </div>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
 <p>Remember to store the seed somewhere (file on disk, registry, etc)
 because without it, you will not have access to the node, and any
 funds on the node will be lost forever! We mean it when we say <em>you're
 the only one with access to the seed</em>!</p>
+</div>
 <p>Next we instantiate an mTLS identity we will use to authenticate with
 Greenlight. Since we haven't registered our node with the service yet,
-we will use a dummy key, that allows us to talk to the <em>Scheduler</em> but
-will not allow us to talk to any other service. No worries, once we
-register the node we will get a valid certificate to authenticate.</p>
+we will use a <a href="../#authentication">dummy key</a>, that allows us to talk to the 
+<a href="../#scheduler"><code>Scheduler</code></a> but will not allow us to talk to any other service.
+No worries, once we register the node we will get a valid certificate 
+to authenticate.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="3:3"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Rust</label><label for="__tabbed_3_2">Python</label><label for="__tabbed_3_3">Javascript</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -899,7 +903,7 @@ register the node we will get a valid certificate to authenticate.</p>
 </div>
 </div>
 </div>
-<p>Finally, we can create the <code>Signer</code> which processes incoming signature
+<p>Finally, we can create the <a href="../#signer"><code>Signer</code></a> which processes incoming signature
 requests, and is used when registering a node to prove ownership of
 the private key. The last thing to decide is which network we want the
 node to run on. You can chose between the following networks:</p>
@@ -912,7 +916,7 @@ node to run on. You can chose between the following networks:</p>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="k">use</span><span class="w"> </span><span class="n">gl_client</span>::<span class="n">signer</span>::<span class="n">Signer</span><span class="p">;</span>
-<span class="k">use</span><span class="w"> </span><span class="n">bitcoin</span>::<span class="n">Network</span><span class="p">;</span>
+<span class="k">use</span><span class="w"> </span><span class="n">lightning_signer</span>::<span class="n">bitcoin</span>::<span class="n">Network</span><span class="p">;</span>
 
 <span class="n">signer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Signer</span>::<span class="n">new</span><span class="p">(</span><span class="n">secret</span><span class="p">,</span><span class="w"> </span><span class="n">Network</span>::<span class="n">Bitcoin</span><span class="p">,</span><span class="w"> </span><span class="n">tls</span><span class="p">);</span>
 </code></pre></div>
@@ -928,14 +932,26 @@ node to run on. You can chose between the following networks:</p>
 </div>
 </div>
 <h2 id="registering-a-new-node">Registering a new node</h2>
-<p>Registering a node with the <em>Scheduler</em> creates the node metadata on
+<p>Registering a node with the <a href="../#scheduler"><code>Scheduler</code></a> creates the node metadata on
 the Greenlight service, including the node's identity and the public
 key, and ensures everything is setup to start the node. </p>
 <p>In order to register a node, the client needs to prove it has access
 to the corresponding private key. Since the private key is managed
-exclusively by the <em>Signer</em> we need to first instantiate that:</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="5:1"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">Python</label></div>
+exclusively by the <a href="../#signer"><code>Signer</code></a> we need to pass the <a href="../#signer"><code>Signer</code></a>
+to the <a href="../#scheduler"><code>Scheduler</code></a>:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="5:2"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">Rust</label><label for="__tabbed_5_2">Python</label></div>
 <div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="k">use</span><span class="w"> </span><span class="n">gl_client</span>::<span class="n">Scheduler</span><span class="p">;</span>
+<span class="k">use</span><span class="w"> </span><span class="n">lightning_signer</span>::<span class="n">bitcoin</span>::<span class="n">Network</span><span class="p">;</span>
+
+<span class="n">scheduler</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Scheduler</span>::<span class="n">new</span><span class="p">(</span><span class="n">signer</span><span class="p">.</span><span class="n">node_id</span><span class="p">(),</span><span class="w"> </span><span class="n">Network</span>::<span class="n">Bitcoin</span><span class="p">);</span>
+
+<span class="c1">// Passing in the signer is required because the client needs to prove</span>
+<span class="c1">// ownership of the `node_id`</span>
+<span class="n">scheduler</span><span class="p">.</span><span class="n">register</span><span class="p">(</span><span class="n">signer</span><span class="p">,</span><span class="w"> </span><span class="nb">Some</span><span class="p">(</span><span class="n">invite_code</span><span class="p">))</span>
+</code></pre></div>
+</div>
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">glclient</span> <span class="kn">import</span> <span class="n">Scheduler</span>
 
@@ -953,9 +969,20 @@ exclusively by the <em>Signer</em> we need to first instantiate that:</p>
 </div>
 </div>
 <p>The result of <code>register</code> contains the credentials that can be used
-going forward to talk to the scheduler and the node itself. Please
-make sure to store them somewhere safe, since anyone with these
-credentials can access your node.</p>
+going forward to talk to the scheduler and the node itself. </p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Please make sure to store them somewhere safe, since anyone with 
+these credentials can access your node.</p>
+</div>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>While we are spinning up and gradually extending our services
+you will need a <a href="../../reference/partner-certs/">partner certificate</a> or an invite code
+in order to register a new node on the Greenlight service. Head over
+to this <a href="https://docs.google.com/forms/d/e/1FAIpQLSf_YaUJt8lKIDwS893Uk2mBiW6BUcoQkvO_g8EFZc9XqQfkqw/viewform">form</a> to request an invite code. Please note
+that the invite codes are limited. </p>
+</div>
 <div class="tabbed-set tabbed-alternate" data-tabs="6:2"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><input id="__tabbed_6_2" name="__tabbed_6" type="radio" /><div class="tabbed-labels"><label for="__tabbed_6_1">Rust</label><label for="__tabbed_6_2">Python</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
