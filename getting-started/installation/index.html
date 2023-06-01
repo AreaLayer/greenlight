@@ -13,7 +13,7 @@
     
     
       
-        <title>Client Libraries - Greenlight Documentation</title>
+        <title>Installation - Greenlight Documentation</title>
       
     
     
@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#client-libraries" class="md-skip">
+        <a href="#installing-the-library" class="md-skip">
           Skip to content
         </a>
       
@@ -101,7 +101,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Client Libraries
+              Installation
             
           </span>
         </div>
@@ -195,13 +195,15 @@
         
   
   
+    
+  
 
 
   
   
   
     <li class="md-tabs__item">
-      <a href="../../getting-started/" class="md-tabs__link">
+      <a href="../" class="md-tabs__link md-tabs__link--active">
         Getting Started
       </a>
     </li>
@@ -233,7 +235,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../" class="md-tabs__link">
+      <a href="../../reference/" class="md-tabs__link">
         Reference
       </a>
     </li>
@@ -344,12 +346,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
       
       
       
@@ -371,7 +375,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../getting-started/">Getting Started</a>
+          <a href="../">Getting Started</a>
           
             <label for="__nav_2">
               <span class="md-nav__icon md-icon"></span>
@@ -392,11 +396,48 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../../getting-started/installation/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Installation
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Installation
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#installing-the-library" class="md-nav__link">
+    Installing the library
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -408,7 +449,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../getting-started/register/" class="md-nav__link">
+      <a href="../register/" class="md-nav__link">
         Registering a node
       </a>
     </li>
@@ -422,7 +463,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../getting-started/schedule/" class="md-nav__link">
+      <a href="../schedule/" class="md-nav__link">
         Starting a node
       </a>
     </li>
@@ -436,7 +477,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../getting-started/recover/" class="md-nav__link">
+      <a href="../recover/" class="md-nav__link">
         Recover access
       </a>
     </li>
@@ -561,7 +602,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../">Reference</a>
+          <a href="../../reference/">Reference</a>
           
             <label for="__nav_4">
               <span class="md-nav__icon md-icon"></span>
@@ -584,7 +625,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../security/" class="md-nav__link">
+      <a href="../../reference/security/" class="md-nav__link">
         Security
       </a>
     </li>
@@ -598,7 +639,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../partner-certs/" class="md-nav__link">
+      <a href="../../reference/partner-certs/" class="md-nav__link">
         Partner Certificates
       </a>
     </li>
@@ -612,7 +653,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../lsp/" class="md-nav__link">
+      <a href="../../reference/lsp/" class="md-nav__link">
         LSP Integration
       </a>
     </li>
@@ -707,8 +748,6 @@
   
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -717,8 +756,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#compatibility-matrix" class="md-nav__link">
-    Compatibility matrix
+  <a href="#installing-the-library" class="md-nav__link">
+    Installing the library
   </a>
   
 </li>
@@ -738,10 +777,51 @@
                   
 
 
-<h1 id="client-libraries">Client Libraries</h1>
-<h2 id="compatibility-matrix">Compatibility matrix</h2>
-<p>|------|--------|----|
-| Rust | Python | JS |</p>
+  <h1>Installation</h1>
+
+<h2 id="installing-the-library">Installing the library</h2>
+<p>Greenlight provides client libraries for a variety of programming
+languages, providing an idiomatic interface to developers. The
+libraries allow interaction with both the <em>Scheduler</em> and the
+<em>Node</em>. The <em>Scheduler</em> provides access to the node metadata, while
+the <em>Node</em> is the user's CLN node running on Greenlight's
+infrastructure.</p>
+<p>Steps to install the library depend on the programming language and
+target environment. The code blocks below provide tabs for the most
+common ones:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Rust</label><label for="__tabbed_1_2">Python</label><label for="__tabbed_1_3">Javascript</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Add the <code>gl-client</code> crate as a dependency by either editing the
+<code>Cargo.toml</code> and add the following lines</p>
+<div class="highlight"><pre><span></span><code><span class="k">[dependencies]</span>
+<span class="n">gl-client</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">git</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;ssh://git@github.com/Blockstream/greenlight&quot;</span><span class="w"> </span><span class="p">}</span>
+</code></pre></div>
+<p>or by using <code>cargo add</code>:</p>
+<div class="highlight"><pre><span></span><code>cargo<span class="w"> </span>add<span class="w"> </span>--git<span class="w"> </span>https://github.com/Blockstream/greenlight.git
+</code></pre></div>
+<p>Note: the rust library currently relies on <code>git</code> dependencies, which
+crates.io does not allow. The <code>gl-client</code> library on crates.io is a
+placeholder until our dependencies stabilize.</p>
+</div>
+<div class="tabbed-block">
+<p>The <code>gl-client</code> package is available on the public PyPI:</p>
+<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>-U<span class="w"> </span>gl-client
+</code></pre></div>
+<p>If you also want the <code>glcli</code> package to interact with your node from
+the command line you can just install that too:</p>
+<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>-U<span class="w"> </span>glcli
+</code></pre></div>
+<p>If you use a different dependency management system please see its 
+documentation about how to specify <code>gl-client</code> as a dependency.</p>
+</div>
+<div class="tabbed-block">
+<p>The JS library is available on the public npmjs.org repository:</p>
+<div class="highlight"><pre><span></span><code>npm<span class="w"> </span>install<span class="w"> </span>gl-client
+</code></pre></div>
+</div>
+</div>
+</div>
 
 
 
@@ -759,6 +839,42 @@
       </main>
       
         <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+        
+        <a href="../" class="md-footer__link md-footer__link--prev" aria-label="Previous: Overview" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Overview
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../register/" class="md-footer__link md-footer__link--next" aria-label="Next: Registering a node" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Registering a node
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
